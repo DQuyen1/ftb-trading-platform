@@ -1,0 +1,8 @@
+[versions]
+spring-boot = "4.1.1"                  # the version Initializr gave you
+spring-dependency-management = "1.1.7" # copy from the generated build.gradle.kts
+
+[libraries]
+# Gradle plugins, used by buildSrc to build the ftb.spring-service convention plugin
+spring-boot-gradle-plugin = { module = "org.springframework.boot:spring-boot-gradle-plugin", version.ref = "spring-boot" }
+spring-dependency-management-plugin = { module = "io.spring.gradle:dependency-management-plugin", version.ref = "spring-dependency-management" }

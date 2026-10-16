@@ -1,0 +1,19 @@
+services:
+  static-data-db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: staticdb
+      POSTGRES_USER: ftb
+      POSTGRES_PASSWORD: ftb
+    ports:
+      - "5433:5432"
+    volumes:
+      - static-data-db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ftb -d staticdb"]
+      interval: 5s
+      timeout: 3s
+      retries: 3
+
+volumes:
+  static-data-db:
